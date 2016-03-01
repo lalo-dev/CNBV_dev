@@ -1,4 +1,4 @@
-		<script src="../../assets/js/core/jquery.min.js"></script>
+	<script src="../../assets/js/core/jquery.min.js"></script>
         <script src="../../assets/js/core/bootstrap.min.js"></script>
         <script src="../../assets/js/core/jquery.slimscroll.min.js"></script>
         <script src="../../assets/js/core/jquery.scrollLock.min.js"></script>
@@ -8,3 +8,4 @@
         <script src="../../assets/js/core/js.cookie.min.js"></script>
         <script src="../../assets/js/app.js"></script>
         <script src="../../assets/js/jquery.redirect.js"></script>
+        <script src="../../assets/js/util.js"></script>

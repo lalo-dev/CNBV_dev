@@ -73,7 +73,7 @@ session_start();
                                 <div class="border-b push-30">
                                     <h2 class="push-10">1 <span class="h5 font-w400 text-muted">PAT encontrados</span></h2>
                                 </div>
-                                <table class="table table-striped table-vcenter table-condensed">
+                                <table id="tblPats" class="table table-striped table-vcenter table-condensed">
                                     <thead>
                                         <tr>
                                             <th style="width: 30%;"><i class="fa fa-folder-open-o text-gray"></i> PAT</th>
@@ -153,5 +153,7 @@ session_start();
                 $.redirect("revisiones",{ anio: anio});
             }
         </script>
+
+        <script src="../../assets/js/controladores/planeacion_anual/pats.js"></script>
     </body>
 </html>
