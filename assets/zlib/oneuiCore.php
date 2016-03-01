@@ -7,3 +7,4 @@
         <script src="../../assets/js/core/jquery.placeholder.min.js"></script>
         <script src="../../assets/js/core/js.cookie.min.js"></script>
         <script src="../../assets/js/app.js"></script>
+        <script src="../../assets/js/jquery.redirect.js"></script>

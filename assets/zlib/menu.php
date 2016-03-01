@@ -22,7 +22,7 @@
                     <div class="side-content">
                         <ul class="nav-main">
                             <li>
-                                <a class="active" href="../dashboard">
+                                <a class="mp0" href="../dashboard">
                                     <i class="si si-speedometer"></i>
                                     <span class="sidebar-mini-hide">Dashboard</span>
                                 </a>
@@ -34,7 +34,7 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a class="ms1_1" href="../planeacion-anual/pats">PAT</a>
+                                        <a class="ms1_1" href="../planeacion-anual/pats">PATS</a>
                                     </li>
                                     <li>
                                         <a class="ms1_2" href="">Presentación ejecutiva</a>

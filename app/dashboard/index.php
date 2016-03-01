@@ -149,6 +149,8 @@
                 // Init page helpers (Slick Slider plugin)
                 App.initHelpers('slick');
             });
+
+            $('.mp0').addClass('active');
         </script>
     </body>
 </html>

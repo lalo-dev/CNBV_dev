@@ -1,83 +1,39 @@
+<?php
+session_start();
+$anio = htmlspecialchars($_POST['anio']);
+
+if (!empty($anio)) {
+    $_SESSION['patAnio'] = $anio;   
+}
+?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
     <!-- head -->
-    <?php include_once('zlib/head.php'); ?>
+    <?php include_once('../../assets/zlib/head.php'); ?>
     <!-- END head-->
     <body>
+        <!-- Variables -->
+        <input type="hidden" id="anio" name="anio" value="<?php echo $patAnio; ?>">
+        <!-- END Variables -->
         <!-- Page Container -->
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
             <!-- Side Overlay-->
-            <?php include_once('zlib/sideContent.php'); ?>
+            <?php include_once('../../assets/zlib/sideContent.php'); ?>
             <!-- END Side Overlay -->
 
             <!-- Sidebar -->            
-            <nav id="sidebar">
-                <!-- Sidebar Scroll Container -->
-                <div id="sidebar-scroll">
-                    <!-- Sidebar Content -->
-                    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-                    <div class="sidebar-content">
-                        <!-- Side Header -->
-                        <?php include_once('zlib/sideHeader.php'); ?>
-                        <!-- END Side Header -->
-
-                        <!-- Side Content -->
-                        <div class="side-content">
-                            <ul class="nav-main">
-                                <li>
-                                    <a class="" href="../dashboard">
-                                        <i class="si si-speedometer"></i>
-                                        <span class="sidebar-mini-hide">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Actividades</span></li>
-                                <li class="mp1 open">
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">Planeación anual</span></a>
-                                    <ul>
-                                        <li>
-                                            <a class="ms1 active" href="pat">PAT</a>
-                                        </li>
-                                        <li>
-                                            <a class="ms2" href="#">Presentación ejecutiva</a>
-                                        </li>
-                                        <li>
-                                            <a class="ms3" href="#">Mapa de riesgos</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- END Side Content -->
-                    </div>
-                    <!-- Sidebar Content -->
-                </div>
-                <!-- END Sidebar Scroll Container -->
-            </nav>
+            <?php include_once('../../assets/zlib/menu.php'); ?>
             <!-- END Sidebar -->
 
             <!-- Header -->
             <header id="header-navbar" class="content-mini content-mini-full">
                 <!-- Header Navigation Right -->
-                <?php include_once('zlib/headerNavigation.php'); ?>
+                <?php include_once('../../assets/zlib/headerNavigation.php'); ?>
                 <!-- END Header Navigation Right -->
 
                 <!-- Header Navigation Left -->
-                <ul class="nav-header pull-left">
-                    <li class="hidden-md hidden-lg">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
-                            <i class="fa fa-navicon"></i>
-                        </button>
-                    </li>
-                    <li class="hidden-xs hidden-sm">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
-                            <i class="fa fa-ellipsis-v"></i>
-                        </button>
-                    </li>
-                    
-                </ul>
+                <?php include_once('../../assets/zlib/headerNavigationLeft.php'); ?>
                 <!-- END Header Navigation Left -->
             </header>
             <!-- END Header -->
@@ -89,13 +45,13 @@
                     <div class="row items-push">
                         <div class="col-sm-7">
                             <h1 class="page-heading">
-                                PAT 2016 <small>Programa Anual de Trabajo</small>
+                                PAT <?php echo $_SESSION['patAnio']; ?> <small>Programa Anual de Trabajo</small>
                             </h1>
                         </div>
                         <div class="col-sm-5 text-right hidden-xs">
                             <ol class="breadcrumb push-10-t">
                                 <li>Planeación anual</li>
-                                <li><a class="link-effect" href="m1_0_pat_completo">PAT 2016</a></li>
+                                <li><a class="link-effect" href="pats">PATS</a></li>
                             </ol>
                         </div>
                     </div>
@@ -587,7 +543,7 @@
                                     <div class="col-xs-6 col-sm-2 col-lg-2">
                                         <a class="block block-link-hover3 text-center" href="agregar-revision">
                                             <div class="block-content block-content-full">
-                                                <i class="si si-doc fa-4x text-primary"></i>
+                                                <i class="si si-doc fa-4x text-success"></i>
                                                 <div class="font-w600 push-15-t">Agregar Revisión</div>
                                             </div>
                                         </a>
@@ -603,7 +559,7 @@
             <!-- END Main Container -->
 
             <!-- Footer -->
-            <?php include_once('zlib/footer.php'); ?>
+            <?php include_once('../../assets/zlib/footer.php'); ?>
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
@@ -713,7 +669,7 @@
         <!-- END Small Modal -->
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-        <?php include_once('zlib/oneuiCore.php'); ?>
+        <?php include_once('../../assets/zlib/oneuiCore.php'); ?>
         <!-- END OneUI Core -->
 
         <!-- Page JS Plugins -->
@@ -726,27 +682,17 @@
         <!-- Page JS Code -->
         <script src="../../assets/js/pages/base_forms_validation.js"></script>
 
-        <!-- Page JS Plugins -->
-        <script src="../../assets/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-        <script src="../../assets/js/plugins/bootstrap-datetimepicker/moment.min.js"></script>
-        <script src="../../assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
-        <script src="../../assets/js/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-        <script src="../../assets/js/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
-        <script src="../../assets/js/plugins/select2/select2.full.min.js"></script>
-        <script src="../../assets/js/plugins/masked-inputs/jquery.maskedinput.min.js"></script>
-        <script src="../../assets/js/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
-        <script src="../../assets/js/plugins/dropzonejs/dropzone.min.js"></script>
-        <script src="../../assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
-
-        <!-- Page JS Code -->
-        <script src="../../assets/js/pages/base_ui_chat.js"></script>
-
         <!-- Page JS Code -->
         <script>
-            $(function () {
-                // Init page helpers (BS Datepicker + BS Datetimepicker + BS Colorpicker + BS Maxlength + Select2 + Masked Input + Range Sliders + Tags Inputs plugins)
-                App.initHelpers(['datepicker', 'datetimepicker', 'colorpicker', 'maxlength', 'select2', 'masked-inputs', 'rangeslider', 'tags-inputs']);
+            $(document).ready(function(){
+                $('.mp1').addClass('open');
+                $('.ms1_1').addClass('active');
             });
+
+            // function mostrarAgregar(){
+            //     var anio = $('#anio').val();
+            //     $.redirect("agregar-revision",{ anio: anio});
+            // };
         </script>
     </body>
 </html>

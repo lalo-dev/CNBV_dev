@@ -4,8 +4,8 @@
 	{
 		var $host = "localhost";
 		var $userDb = "root";
-		var $passwordDb = "";
-		var $dataBaseName = "pakaldb";
+		var $passwordDb = "root";
+		var $dataBaseName = "cnbv";
 		var $conection;
 
 		function ConectToDataBase(){

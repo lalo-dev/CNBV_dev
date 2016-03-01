@@ -1,73 +1,32 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
-    <?php include_once('zlib/head.php'); ?>
+    <!-- head -->
+    <?php include_once('../../assets/zlib/head.php'); ?>
+    <!-- END head-->
     <body>
         <!-- Page Container -->
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
             <!-- Side Overlay-->
-            <?php include_once('zlib/sideContent.php'); ?>
+            <?php include_once('../../assets/zlib/sideContent.php'); ?>
             <!-- END Side Overlay -->
 
             <!-- Sidebar -->            
-            <nav id="sidebar">
-                <!-- Sidebar Scroll Container -->
-                <div id="sidebar-scroll">
-                    <!-- Sidebar Content -->
-                    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-                    <div class="sidebar-content">
-                        <!-- Side Header -->
-                        <?php include_once('zlib/sideHeader.php'); ?>
-                        <!-- END Side Header -->
-
-                        <!-- Side Content -->
-                        <div class="side-content">
-                            <ul class="nav-main">
-                                <li>
-                                    <a class="" href="../dashboard">
-                                        <i class="si si-speedometer"></i>
-                                        <span class="sidebar-mini-hide">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Actividades</span></li>
-                                <li class="open">
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">Planeación anual</span></a>
-                                    <ul>
-                                        <li>
-                                            <a class="active" href="m1_0_pat_completo">PAT</a>
-                                        </li>
-                                        <li>
-                                            <a class="submenuCnbv" href="m1_3_presentacion_ejecutiva">Presentación ejecutiva</a>
-                                        </li>
-                                        <li>
-                                            <a class="submenuCnbv" href="m1_4_mapa_riesgos">Mapa de riesgos</a>
-                                        </li>
-                                        <li>
-                                            <a class="submenuCnbv" href="m1_5_semanas_hombre">Semanas hombre</a>
-                                        </li>
-                                        <li>
-                                            <a class="submenuCnbv" href="m1_6_equipo_trabajo">Equipo de trabajo</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- END Side Content -->
-                    </div>
-                    <!-- Sidebar Content -->
-                </div>
-                <!-- END Sidebar Scroll Container -->
-            </nav>
+            <?php include_once('../../assets/zlib/menu.php'); ?>
             <!-- END Sidebar -->
 
             <!-- Header -->
             <header id="header-navbar" class="content-mini content-mini-full">
                 <!-- Header Navigation Right -->
-                <?php include_once('zlib/headerNavigation.php'); ?>
+                <?php include_once('../../assets/zlib/headerNavigation.php'); ?>
                 <!-- END Header Navigation Right -->
 
                 <!-- Header Navigation Left -->
-                <?php include_once('zlib/headerNavigationLeft.php'); ?>
+                <?php include_once('../../assets/zlib/headerNavigationLeft.php'); ?>
                 <!-- END Header Navigation Left -->
             </header>
             <!-- END Header -->
@@ -79,14 +38,14 @@
                     <div class="row items-push">
                         <div class="col-sm-7">
                             <h1 class="page-heading">
-                                Agregar revisión <small>PAT 2016</small>
+                                Agregar revisión <small>PAT <?php echo $_SESSION['patAnio']; ?></small>
                             </h1>
                         </div>
                         <div class="col-sm-5 text-right hidden-xs">
                             <ol class="breadcrumb push-10-t">
                                 <li>Planeación anual</li>
                                 <li><a class="link-effect" href="pat">PAT Completo</a></li>
-                                <li><a class="link-effect" href="revisiones">PAT 2016</a></li>
+                                <li><a class="link-effect" href="revisiones">PAT <?php echo $_SESSION['patAnio']; ?></a></li>
                             </ol>
                         </div>
                     </div>
@@ -415,14 +374,14 @@
             <!-- END Main Container -->
 
             <!-- Footer -->
-            <?php include_once('zlib/footer.php'); ?>
+            <?php include_once('../../assets/zlib/footer.php'); ?>
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
 
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-        <?php include_once('zlib/oneuiCore.php'); ?>
+        <?php include_once('../../assets/zlib/oneuiCore.php'); ?>
         <!-- END OneUI Core -->
 
         <!-- Page JS Plugins -->
@@ -453,6 +412,9 @@
                 // Init page helpers (BS Datepicker + BS Datetimepicker + BS Colorpicker + BS Maxlength + Select2 + Masked Input + Range Sliders + Tags Inputs plugins)
                 App.initHelpers(['datepicker', 'datetimepicker', 'colorpicker', 'maxlength', 'select2', 'masked-inputs', 'rangeslider', 'tags-inputs']);
             });
+            
+            $('.mp1').addClass('open');
+            $('.ms1_1').addClass('active');
         </script>
     </body>
 </html>

@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
@@ -22,7 +25,7 @@
                 <!-- END Header Navigation Right -->
 
                 <!-- Header Navigation Left -->
-                <?php include_once('../../assets/zlib/headerNavigation.php'); ?>
+                <?php include_once('../../assets/zlib/headerNavigationLeft.php'); ?>
                 <!-- END Header Navigation Left -->
             </header>
             <!-- END Header -->
@@ -85,7 +88,7 @@
                                         <tr>
                                             <td>
                                                 <h3 class="h5 font-w600 push-10">
-                                                    <a class="link-effect" href="revisiones">Programa Anual de Trabajo 2016</a>
+                                                    <a class="link-effect" href="javascript:mostrarPat(2016);">Programa Anual de Trabajo 2016</a>
                                                 </h3>
                                                 <div class="push-10">    
                                                     <span class="label label-primary"><i class="fa fa-check"></i> Programado</span>
@@ -113,10 +116,10 @@
                                         </a>
                                     </div>
                                     <div class="col-xs-6 col-sm-4 col-lg-2">
-                                        <a class="block block-link-hover3 text-center" href="javascript:void(0)">
+                                        <a class="block block-link-hover3 text-center" href="activar-pat">
                                             <div class="block-content block-content-full">
                                                 <i class="si si-folder fa-4x text-success"></i>
-                                                <div class="font-w600 push-15-t">Nuevo PAT</div>
+                                                <div class="font-w600 push-15-t">Activar PAT</div>
                                             </div>
                                         </a>
                                     </div>
@@ -130,19 +133,25 @@
             <!-- END Main Container -->
 
             <!-- Footer -->
-            <?php include_once('zlib/footer.php'); ?>
+            <?php include_once('../../assets/zlib/footer.php'); ?>
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
 
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-        <?php include_once('zlib/oneuiCore.php'); ?>
+        <?php include_once('../../assets/zlib/oneuiCore.php'); ?>
         <!-- END OneUI Core -->
 
         <script>
-            $('.mp1').addClass('open');
-            $('.ms1_1').addClass('active');
+            $(document).ready(function(){
+                $('.mp1').addClass('open');
+                $('.ms1_1').addClass('active');
+            });
+
+            function mostrarPat(anio){
+                $.redirect("revisiones",{ anio: anio});
+            }
         </script>
     </body>
 </html>
