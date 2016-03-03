@@ -1,3 +1,9 @@
+<?php
+// 	include_once "../../assets/php/class/clsConsultas.php";
+// 	include_once "../../assets/php/class/clsTiposPublicaciones.php";
+	
+	include_once "../../assets/php/ctrls/ctrPublicaciones.php";
+?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-focus"> <!--<![endif]-->
@@ -53,18 +59,21 @@
                                 </div>
                                 <div class="block-content">
                                     <ul class="list list-timeline pull-t">
+                                    
+                                    
+                                    
+                                    
                                         <!-- Twitter Notification -->
+<?php
+									foreach($publicaciones as $unaP)
+									{
+?>
                                         <li>
-                                            <div class="list-timeline-time">10 Febrero 2016</div>
+                                            <div class="list-timeline-time"><?php echo $unaP["fechaCreacionPublicaciones"]?></div>
                                             <i class="fa fa-newspaper-o list-timeline-icon bg-info"></i>
                                             <div class="list-timeline-content">
-                                                <p class="font-w600">Noticia CNBV</p>
-                                                <p class="font-s13">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                <p class="font-w600"><?php echo $unaP["tituloPublicaciones"]?></p>
+                                                <p class="font-s13"><?php echo $unaP["textoPublicaciones"]?></p>
                                                 <div class="row items-push js-gallery">
                                                     <div class="col-sm-6 col-lg-4">
                                                         <a class="img-link" href="../assets/img/photos/photo2@2x.jpg">
@@ -85,23 +94,27 @@
                                                 <p class="font-s13"><a href="javascript:void(0)">Leer más >></a></p>
                                             </div>
                                         </li>
+<?php
+                                    }
+?>
                                         <!-- END Twitter Notification -->
 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                         <!-- Generic Notification -->
-                                        <li>
-                                            <div class="list-timeline-time">10 Enero 2016</div>
-                                            <i class="fa fa-calendar-times-o list-timeline-icon bg-city"></i>
-                                            <div class="list-timeline-content">
-                                                <p class="font-w600">Fechas limite de entrega!</p>
-                                                <p class="font-s13">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                                <p class="font-s13"><a href="javascript:void(0)">Leer más >></a></p>
-                                            </div>
-                                        </li>
+<!--                                         <li> -->
+<!--                                             <div class="list-timeline-time">10 Enero 2016</div> -->
+<!--                                             <i class="fa fa-calendar-times-o list-timeline-icon bg-city"></i> -->
+<!--                                             <div class="list-timeline-content"> -->
+<!--                                                 <p class="font-w600">Fechas limite de entrega!</p> -->
+<!--                                                 <p class="font-s13">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+<!--                                                 <p class="font-s13"><a href="javascript:void(0)">Leer más >></a></p> -->
+<!--                                             </div> -->
+<!--                                         </li> -->
                                         <!-- END Generic Notification -->
                                     </ul>
                                 </div>

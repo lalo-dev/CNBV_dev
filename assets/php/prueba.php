@@ -16,26 +16,31 @@
  */
  
 //requerimos solo la clase consultas
-require_once("class/class.consultas.php");
+require_once"class/clsConsultas.php";
+require_once "class/clsPersona.php";
 
 /* Para consultar Personas */
-// $oDatosPersonas = new Persona;
-// $personas_registradas = $oDatosPersonas->obtenerPersonas();
+if($_GET["accion"] && $_GET["accion"] == "c")
+{
+	$oDatosPersonas = new Persona;
+	$personas_registradas = $oDatosPersonas->obtenerPersonas();
+	echo "<pre>";
+		print_r($personas_registradas);
+	echo "</pre>";
+}
 
-// print_r($personas_registradas);
-
-/* Para consultar Pats */
-$pat = new Pat;
-$resPats = $pat->obtenerPats();
-echo '<pre>';
-print_r($resPats);
-echo '</pre>';
 
 /* Para registrar Personas */
-// $oRegistroPersonas = new Persona;
-// $registro = $oRegistroPersonas->registrarPersonas("Juanito","Banana",27);
-
-// if($registro){ echo "Registro Satisfactorio"; }
+if($_GET["accion"] && $_GET["accion"] == "i")
+{
+	$oRegistroPersonas = new Persona;
+	$registro = $oRegistroPersonas->registrarPersonas("Juanito","Banana",27);
+	
+	if($registro)
+	{
+		header("Location:?accion=c");
+	}
+}
 ?>
 </body>
 </html>
