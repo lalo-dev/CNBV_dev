@@ -27,9 +27,9 @@ require_once("class/class.consultas.php");
 /* Para consultar Pats */
 $pat = new Pat;
 $resPats = $pat->obtenerPats();
-
+echo '<pre>';
 print_r($resPats);
-
+echo '</pre>';
 
 /* Para registrar Personas */
 // $oRegistroPersonas = new Persona;
