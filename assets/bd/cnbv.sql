@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-03-2016 a las 06:27:56
+-- Tiempo de generación: 03-03-2016 a las 06:43:10
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -44,28 +44,19 @@ CREATE TABLE IF NOT EXISTS `estatus` (
 
 CREATE TABLE IF NOT EXISTS `pat` (
 `idPat` int(11) NOT NULL,
-  `nombre` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
-  `anio` int(11) NOT NULL,
-  `auditorias` int(11) NOT NULL,
-  `seguimientos` int(11) NOT NULL,
-  `observaciones` int(11) NOT NULL,
-  `pras` int(11) NOT NULL,
-  `validar` int(11) NOT NULL,
-  `estatus` int(1) NOT NULL COMMENT '1-Programado,2-En proceso,3-Completado',
-  `activo` int(1) NOT NULL,
-  `fcrea` datetime NOT NULL,
-  `ucrea` int(11) NOT NULL,
-  `fmod` datetime NOT NULL,
-  `umod` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `pat`
---
-
-INSERT INTO `pat` (`idPat`, `nombre`, `anio`, `auditorias`, `seguimientos`, `observaciones`, `pras`, `validar`, `estatus`, `activo`, `fcrea`, `ucrea`, `fmod`, `umod`) VALUES
-(1, 'Plan Anual de Trabajo', 2016, 0, 0, 0, 0, 0, 1, 1, '2016-01-01 00:00:00', 1, '2016-01-02 00:00:00', 1),
-(2, 'Plan Anual de Trabajo', 2017, 0, 0, 0, 0, 0, 0, 0, '2016-01-01 00:00:00', 1, '2016-01-02 00:00:00', 1);
+  `nombrePat` varchar(40) COLLATE utf8_bin NOT NULL,
+  `anioPat` int(11) NOT NULL,
+  `auditoriasPat` int(11) NOT NULL,
+  `seguimientosPat` int(11) NOT NULL,
+  `observacionesPat` int(11) NOT NULL,
+  `prasPat` int(11) NOT NULL,
+  `idEstatusPat` int(11) NOT NULL,
+  `activoPat` int(11) NOT NULL,
+  `idUsuarioCreadorPat` int(11) NOT NULL,
+  `fechaCreacionPat` datetime NOT NULL,
+  `idUsuarioModificadorPat` int(11) NOT NULL,
+  `fechaModificacionPat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -75,36 +66,36 @@ INSERT INTO `pat` (`idPat`, `nombre`, `anio`, `auditorias`, `seguimientos`, `obs
 
 CREATE TABLE IF NOT EXISTS `pat_detalle` (
 `idPatDetalle` int(11) NOT NULL,
-  `consecutivo` int(11) NOT NULL,
-  `tipo` int(1) NOT NULL COMMENT '1-Auditoria,2-Seguimiento',
-  `pa` int(1) NOT NULL COMMENT '1-Programada,2-Adicional',
-  `clave` int(11) NOT NULL,
-  `instancia` int(11) NOT NULL,
-  `justificacion` int(11) NOT NULL,
-  `area` int(11) NOT NULL,
-  `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
-  `objetivo` text COLLATE utf8_spanish_ci NOT NULL,
-  `spi` int(11) NOT NULL COMMENT 'Semana programada de inicio',
-  `spt` int(11) NOT NULL COMMENT 'Semana programada de termino',
-  `tsr` int(11) NOT NULL COMMENT 'Total de semanas revision',
-  `tsh` int(11) NOT NULL COMMENT 'Total de semanas hombre',
-  `pri` datetime NOT NULL COMMENT 'Inicio periodo de revision',
-  `prf` datetime NOT NULL COMMENT 'Fin periodo de revision',
-  `ap` int(11) NOT NULL COMMENT 'Auditoria procedente',
-  `muestra` int(11) NOT NULL,
-  `universo` int(11) NOT NULL,
-  `pendiente` int(11) NOT NULL,
-  `riegos` int(11) NOT NULL,
-  `cuadrante` int(11) NOT NULL,
+  `consecutivoPatDetalle` int(11) NOT NULL,
+  `tipoPatDetalle` int(11) NOT NULL,
+  `paPatDetalle` int(11) NOT NULL,
+  `clavePatDetalle` int(11) NOT NULL,
+  `instanciaPatDetalle` int(11) NOT NULL,
+  `justificacionPatDetalle` int(11) NOT NULL,
+  `areaPatDetalle` int(11) NOT NULL,
+  `descripcionPatDetalle` text COLLATE utf8_bin NOT NULL,
+  `objetivoPatDetalle` text COLLATE utf8_bin NOT NULL,
+  `spiPatDetalle` int(11) NOT NULL,
+  `sptPatDetalle` int(11) NOT NULL,
+  `tsrPatDetalle` int(11) NOT NULL,
+  `tshPatDetalle` int(11) NOT NULL,
+  `priPatDetalle` int(11) NOT NULL,
+  `prfPatDetalle` int(11) NOT NULL,
+  `apPatDetalle` int(11) NOT NULL,
+  `muestraPatDetalle` int(11) NOT NULL,
+  `universoPatDetalle` int(11) NOT NULL,
+  `pendientePatDetalle` int(11) NOT NULL,
+  `riesgosPatDetalle` int(11) NOT NULL,
+  `cuadrantePatDetalle` int(11) NOT NULL,
   `revisado` int(11) NOT NULL,
-  `verificado` int(11) NOT NULL,
-  `comentarios` int(11) NOT NULL,
-  `estatus` int(11) NOT NULL,
-  `fcrea` datetime NOT NULL,
-  `ucrea` int(11) NOT NULL,
-  `fmod` datetime NOT NULL,
-  `umod` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `verificadoPatDetalle` int(11) NOT NULL,
+  `comentariosPatDetalle` int(11) NOT NULL,
+  `idEstatusPatDetalle` int(11) NOT NULL,
+  `idUsuarioCreadorPatDetalle` int(11) NOT NULL,
+  `fechaCreacionPatDetalle` datetime NOT NULL,
+  `idUsuarioModificadorPatDetalle` int(11) NOT NULL,
+  `fechaModificacionPatDetalle` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -206,7 +197,7 @@ MODIFY `idEstatus` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `pat`
 --
 ALTER TABLE `pat`
-MODIFY `idPat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `idPat` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pat_detalle`
 --
