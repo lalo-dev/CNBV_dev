@@ -3,6 +3,7 @@
 // 	include_once "../../assets/php/class/clsTiposPublicaciones.php";
 	
 	include_once "../../assets/php/ctrls/ctrPublicaciones.php";
+	$objP = new ctrPublicaciones();
 ?>
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="ie9 no-focus"> <![endif]-->
@@ -65,29 +66,34 @@
                                     
                                         <!-- Twitter Notification -->
 <?php
-									foreach($publicaciones as $unaP)
+									foreach($objP->mostrarPublicaciones() as $unaP)
 									{
+										$classIcono = "fa fa-newspaper-o list-timeline-icon bg-info";
+										if($unaP["idTipoPublicacionPublicaciones"] == "2")
+											$classIcono = "fa fa-calendar-times-o list-timeline-icon bg-city";
+										else if($unaP["idTipoPublicacionPublicaciones"] == "3")
+											$classIcono = "";
 ?>
                                         <li>
                                             <div class="list-timeline-time"><?php echo $unaP["fechaCreacionPublicaciones"]?></div>
-                                            <i class="fa fa-newspaper-o list-timeline-icon bg-info"></i>
+                                            <i class="<?php echo $classIcono;?>"></i>
                                             <div class="list-timeline-content">
                                                 <p class="font-w600"><?php echo $unaP["tituloPublicaciones"]?></p>
                                                 <p class="font-s13"><?php echo $unaP["textoPublicaciones"]?></p>
                                                 <div class="row items-push js-gallery">
                                                     <div class="col-sm-6 col-lg-4">
                                                         <a class="img-link" href="../assets/img/photos/photo2@2x.jpg">
-                                                            <img class="img-responsive" src="../assets/img/photos/photo2.jpg" alt="">
+                                                            <img class="img-responsive" src="../../assets/img/photos/photo2.jpg" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="col-sm-6 col-lg-4">
                                                         <a class="img-link" href="../assets/img/photos/photo8@2x.jpg">
-                                                            <img class="img-responsive" src="../assets/img/photos/photo8.jpg" alt="">
+                                                            <img class="img-responsive" src="../../assets/img/photos/photo8.jpg" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="col-sm-6 col-lg-4">
                                                         <a class="img-link" href="../assets/img/photos/photo16@2x.jpg">
-                                                            <img class="img-responsive" src="../assets/img/photos/photo16.jpg" alt="">
+                                                            <img class="img-responsive" src="../../assets/img/photos/photo16.jpg" alt="">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -105,7 +111,7 @@
                                         
                                         
                                         
-                                        <!-- Generic Notification -->
+<!--                                         Generic Notification -->
 <!--                                         <li> -->
 <!--                                             <div class="list-timeline-time">10 Enero 2016</div> -->
 <!--                                             <i class="fa fa-calendar-times-o list-timeline-icon bg-city"></i> -->
@@ -116,6 +122,10 @@
 <!--                                             </div> -->
 <!--                                         </li> -->
                                         <!-- END Generic Notification -->
+                                        
+                                        
+                                        
+                                        
                                     </ul>
                                 </div>
                             </div>

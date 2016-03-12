@@ -5,13 +5,13 @@
 	* T.S.U. en Tecnologías de la Información y la Comunicación Área Sistemas Informaticós   	  *
 	* 02/03/2016 22:40:33																		  *
 	**********************************************************************************************/
-	
+	require_once"clsConsultas.php";
 	class Publicacion
 	{
 		private $idPublicacion;
 		private $idTipoPublicacionPublicaciones;
 		private $tituloPublicaciones;
-		private $descripcionPublicaciones;
+// 		private $descripcionPublicaciones;
 		private $textoPublicaciones;
 		private $idEstatusPublicaciones;
 		private $idUsuarioCreadorPublicaciones;
@@ -25,7 +25,7 @@
 										$idPublicacion,
 										$idTipoPublicacionPublicaciones,
 										$tituloPublicaciones,
-										$descripcionPublicaciones,
+// 										$descripcionPublicaciones,
 										$textoPublicaciones,
 										$idEstatusPublicaciones/*,
 										$idUsuarioCreadorPublicaciones,
@@ -37,7 +37,7 @@
 			$this->idPublicacion= $idPublicacion;
 			$this->idTipoPublicacionPublicaciones= $idTipoPublicacionPublicaciones;
 			$this->tituloPublicaciones= $tituloPublicaciones;
-			$this->descripcionPublicaciones= $descripcionPublicaciones;
+// 			$this->descripcionPublicaciones= $descripcionPublicaciones;
 			$this->textoPublicaciones= $textoPublicaciones;
 			$this->idEstatusPublicaciones= $idEstatusPublicaciones;
 		}
@@ -54,10 +54,10 @@
 		{
 			return $this->tituloPublicaciones;
 		}
-		public function getDescripcionPublicaciones()
-		{
-			return $this->descripcionPublicaciones;
-		}
+// 		public function getDescripcionPublicaciones()
+// 		{
+// 			return $this->descripcionPublicaciones;
+// 		}
 		public function getTextoPublicaciones()
 		{
 			return $this->textoPublicaciones;
@@ -87,16 +87,17 @@
 			return $this->arrPublicaiones;
 		}
 		
-		public function BuscarRegistro()
+		public function BuscarUnRegistro()
 		{
 			
 		}
 		
-		public function BuscarRegistros()
+		public function BuscarTodosRegistros()
 		{
 			$existe = false;
 			$query = "SELECT *
-					  FROM Publicaciones";
+					  FROM Publicaciones
+					  WHERE idEstatusPublicaciones != '3';";
 			$valores = array();
 			$objConsulta = new conectorDB();
 			$this->arrPublicaiones = $objConsulta->consultarBD($query, $valores);
@@ -105,6 +106,45 @@
 				$existe = true;
 			}
 			return $existe;
+		}
+		
+		public function CrearRegistro()
+		{
+			$query = "INSERT INTO Publicaciones
+					  VALUES
+						(
+							:idPublicacion,
+							:idTipoPublicacionPublicaciones,
+							:tituloPublicaciones,
+							:textoPublicaciones,
+							:idEstatusPublicaciones,
+							:idUsuarioCreadorPublicaciones,
+							:fechaCreacionPublicaciones,
+							:idUsuarioModificadorPublicaciones,
+							:fechaModificacionPublicaciones)";
+			$valores = array(
+							"idPublicacion"=>$this->idPublicacion,
+							"idTipoPublicacionPublicaciones"=>$this->idTipoPublicacionPublicaciones,
+							"tituloPublicaciones"=>$this->tituloPublicaciones,
+							"textoPublicaciones"=>$this->textoPublicaciones,
+							"idEstatusPublicaciones"=>$this->idEstatusPublicaciones,
+							"idUsuarioCreadorPublicaciones"=>1,
+							"fechaCreacionPublicaciones"=>date("Y") .  "-" . date("m") . "-" . date("d") . " " . date("h") . ":" . date("m") . ":" . date("s"),
+							"idUsuarioModificadorPublicaciones"=>"1",
+							"fechaModificacionPublicaciones"=>date("Y") .  "-" . date("m") . "-" . date("d") . " " . date("h") . ":" . date("m") . ":" . date("s")
+						);
+			
+			$oConexion = new conectorDB;
+			$res = $oConexion->consultarBD($query, $valores);
+			
+			if(empty($res))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 ?>

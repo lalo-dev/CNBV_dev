@@ -10,15 +10,22 @@
 	include_once "../../assets/php/class/clsTiposPublicaciones.php";
 	include_once "../../assets/php/class/clsPublicaciones.php";
 	
-	$objPublicacion = new Publicacion("", "", "", "", "", "");
-	if($objPublicacion->BuscarRegistros())
+	class ctrPublicaciones
 	{
-		$publicaciones = $objPublicacion->getArrPublicaciones();
-		
-		$objTipoPublicacion = new TipoPublicacion("", "", "", "", "");
-		if($objTipoPublicacion->BuscarRegistros())
+		public function mostrarPublicaciones()
 		{
-			$tipPublicaciones = $objTipoPublicacion->getArrCoincidencias();
+			$objPublicacion = new Publicacion("", "", "", "", "", "");
+			if($objPublicacion->BuscarTodosRegistros())
+			{
+				$publicaciones = $objPublicacion->getArrPublicaciones();
+					
+				$objTipoPublicacion = new TipoPublicacion("", "", "", "", "");
+				if($objTipoPublicacion->BuscarRegistros())
+				{
+					$tipPublicaciones = $objTipoPublicacion->getArrCoincidencias();
+				}
+			}
+			return $publicaciones;
 		}
 	}
 ?>
