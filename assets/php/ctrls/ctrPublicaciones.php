@@ -9,6 +9,7 @@
 	include_once "../../assets/php/class/clsConsultas.php";
 	include_once "../../assets/php/class/clsTiposPublicaciones.php";
 	include_once "../../assets/php/class/clsPublicaciones.php";
+	include_once "../../assets/php/class/clsImagenesPublicaciones.php";
 	
 	class ctrPublicaciones
 	{
@@ -18,12 +19,32 @@
 			if($objPublicacion->BuscarTodosRegistros())
 			{
 				$publicaciones = $objPublicacion->getArrPublicaciones();
-					
-				$objTipoPublicacion = new TipoPublicacion("", "", "", "", "");
-				if($objTipoPublicacion->BuscarRegistros())
+				$publicaciones_2 = array();
+				foreach($publicaciones as $value)
 				{
-					$tipPublicaciones = $objTipoPublicacion->getArrCoincidencias();
+					$objImgPub = new ImagenPublicacion("", $value["idPublicacion"], "", "");
+					if($objImgPub->BuscarCoincidenciasIdPublicacion())
+					{
+						$imagenes = array();
+						foreach($objImgPub->getArrayCoincidencias() as $unaI)
+						{
+							$imagenes[] = $unaI["nombreImagenesPublicaciones"];
+						}
+// 						array_push($value, $imagenes);
+						$value['imagenes'] = $imagenes;
+// 						echo "<pre>";
+// 						print_r($value);
+// 						echo "</pre>";
+					}
 				}
+				
+				
+					
+// 				$objTipoPublicacion = new TipoPublicacion("", "", "", "", "");
+// 				if($objTipoPublicacion->BuscarRegistros())
+// 				{
+// 					$tipPublicaciones = $objTipoPublicacion->getArrCoincidencias();
+// 				}
 			}
 			return $publicaciones;
 		}
