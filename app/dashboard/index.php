@@ -60,10 +60,17 @@
                                 </div>
                                 <div class="block-content">
                                     <ul class="list list-timeline pull-t">
+<<<<<<< Updated upstream
                                     XXX<button class="btn btn-info" data-toggle="modal" data-target="#modal-fadein" type="button">Launch Modal</button>
                                     
                                     
                                     
+=======
+
+
+
+
+>>>>>>> Stashed changes
                                         <!-- Twitter Notification -->
 <?php
 									foreach($objP->mostrarPublicaciones() as $unaP)
