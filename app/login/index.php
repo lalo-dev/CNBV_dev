@@ -27,7 +27,7 @@
                             <!-- Login Form -->
                             <!-- jQuery Validation (.js-validation-login class is initialized in js/pages/base_pages_login.js) -->
                             <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                            <form class="js-validation-login form-horizontal push-30-t" action="../dashboard" method="post">
+                            <form class="js-validation-login form-horizontal push-30-t" method="post" id="frmLogin">
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <div class="form-material form-material-primary floating">
@@ -58,10 +58,11 @@
                                 </div>
                                 <div class="form-group push-30-t">
                                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                                        <button class="btn btn-sm btn-block btn-primary" type="submit">Iniciar sesión</button>
+                                        <button class="btn btn-sm btn-block btn-primary" type="submit" id="btnIniciar">Iniciar sesión</button>
                                     </div>
                                 </div>
                             </form>
+                            <div id="mensaje"></div>
                             <!-- END Login Form -->
                         </div>
                     </div>
@@ -85,5 +86,6 @@
 
         <!-- Page JS Code -->
         <script src="../../assets/js/pages/base_pages_login.js"></script>
+        <script src="../../assets/js/controladores/login/ctrLogin.js"></script>
     </body>
 </html>

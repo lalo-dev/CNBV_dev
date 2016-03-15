@@ -24,21 +24,21 @@ var BasePagesLogin = function() {
             rules: {
                 'login-username': {
                     required: true,
-                    minlength: 3
+                    minlength: 4
                 },
                 'login-password': {
                     required: true,
-                    minlength: 5
+                    minlength: 4
                 }
             },
             messages: {
                 'login-username': {
-                    required: 'Please enter a username',
-                    minlength: 'Your username must consist of at least 3 characters'
+                    required: 'Por favor, introduzca su usuario',
+                    minlength: 'Tu nombre de usuario debe tener mínimo 5 caracteres'
                 },
                 'login-password': {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long'
+                    required: 'Por favor, introduzca su contraseña',
+                    minlength: 'Tu contraseña debe tener mínimo 5 caracteres'
                 }
             }
         });
