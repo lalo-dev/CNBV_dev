@@ -12,7 +12,11 @@
     <li>
         <div class="btn-group">
             <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
+<<<<<<< Updated upstream:includes/zlib/headerNavigation.php
                 <img src="img/avatars/avatar10.jpg" alt="Avatar">
+=======
+                <img src="../../../assets/img/avatars/avatar10.jpg" alt="Avatar">
+>>>>>>> Stashed changes:assets/zlib/headerNavigation.php
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
@@ -26,12 +30,16 @@
                 <li class="divider"></li>
                 <li class="dropdown-header">Actions</li>
                 <li>
-                    <a tabindex="-1" href="base_pages_lock.html">
+                    <a tabindex="-1" href="#">
                         <i class="si si-lock pull-right"></i>Bloquear
                     </a>
                 </li>
                 <li>
+<<<<<<< Updated upstream:includes/zlib/headerNavigation.php
                     <a tabindex="-1" href="<?php echo $logoutAction; ?>">
+=======
+                    <a tabindex="-1" href="#">
+>>>>>>> Stashed changes:assets/zlib/headerNavigation.php
                         <i class="si si-logout pull-right"></i>Cerrar sesión
                     </a>
                 </li>
